@@ -1,1 +1,61 @@
-<p>create works!</p>
+<div>
+
+    <div class="d-flex justify-content-between">
+      <h4>Añadir Nave al astillero</h4>
+      <a href="#" routerLink="/starship/index" class="btn btn-primaryt">Cancelar</a>
+    </div>
+  
+    <hr/>
+  
+      <form [formGroup]="form" (ngSubmit)="submit()">
+  
+        <div class="form-group row">
+            <div class="col-md-6 ">
+                <label for="title">Nombre de la Nave:</label>
+                <input
+                  formControlName="name"
+                  id="name"
+                  type="text"
+                  class="form-control">
+                <div *ngIf="f.name.touched && f.name.invalid" class="alert alert-danger">
+                    <div *ngIf="f.name.errors.required">*No se ha introducido un nombre.</div>
+                    <div *ngIf="f.name.errors.pattern">*Se ha introducido un carácter prohibido.</div>
+                </div>
+            </div>
+        </div>
+  
+         <div class="form-group row">
+            <div class="col-md-6 ">
+                <label for="credits">Coste en Euros:</label>
+                <input
+                  formControlName="credits"
+                  id="credits"
+                  type="text"
+                  class="form-control">
+                <div *ngIf="f.credits.touched && f.credits.invalid" class="alert alert-danger">
+                    <div *ngIf="f.credits.errors.required">*Introduce un valor para la nave.</div>
+                    <div *ngIf="f.credits.errors.credits">*Se ha introducido un carácter prohibido.</div>
+                </div>
+            </div>
+        </div>
+          <!--             AQUI TIENE QUE IR EL FOLLON DE LOS PILOTOS, MAYBE
+        <div class="form-group row">
+            <div class="col-md-6 ">
+                <label for="phone">Phone:</label>
+                <input
+                  formControlName="phone"
+                  id="phone"
+                  type="text"
+                  class="form-control">
+                <div *ngIf="f.phone.touched && f.phone.invalid" class="alert alert-danger">
+                    <div *ngIf="f.phone.errors.required">*Phone is required.</div>
+                    <div *ngIf="f.phone.errors.pattern">*The phone must only contain numbers.</div>
+                </div>
+            </div>
+        </div>
+        -->
+
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Añadir Nave</button>
+    </form>
+</div>
+  
