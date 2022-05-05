@@ -19,7 +19,7 @@
                   class="form-control">
                 <div *ngIf="f.name.touched && f.name.invalid" class="alert alert-danger">
                     <div *ngIf="f.name.errors.required">*No se ha introducido un nombre.</div>
-                    <div *ngIf="f.name.errors.pattern">*Se ha introducido un carácter prohibido.</div>
+                    <div *ngIf="f.name.errors.pattern">*Se ha introducido un caracter prohibido.</div>
                 </div>
             </div>
         </div>
@@ -34,7 +34,7 @@
                   class="form-control">
                 <div *ngIf="f.credits.touched && f.credits.invalid" class="alert alert-danger">
                     <div *ngIf="f.credits.errors.required">*Introduce un valor para la nave.</div>
-                    <div *ngIf="f.credits.errors.credits">*Se ha introducido un carácter prohibido.</div>
+                    <div *ngIf="f.credits.errors.pattern">*Se ha introducido un caracter prohibido.</div>
                 </div>
             </div>
         </div>

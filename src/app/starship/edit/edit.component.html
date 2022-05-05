@@ -1,1 +1,67 @@
-<p>edit works!</p>
+<div class="container">
+  
+    <div class="d-flex justify-content-between">
+      <h4>Editar Nave</h4>
+      <a href="#" routerLink="/starship/index" class="btn btn-primaryt">Cancelar</a>
+    </div>
+
+    <hr>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+              <label for="title">Nombre:</label>
+              <input
+                formControlName="name"
+                [(ngModel)]="starship.name"
+                id="name"
+                type="text"
+                class="form-control">
+              <div *ngIf="f.name.touched && f.name.invalid" class="alert alert-danger">
+                  <div *ngIf="f.name.errors.required">*Introduce un nombre.</div>
+                  <div *ngIf="f.name.errors.pattern">*Se ha introducido un caracter prohibido.</div>
+              </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+              <label for="credits">Coste en Euros</label>
+              <input
+                formControlName="credits"
+                [(ngModel)]="starship.credits"
+                id="credits"
+                type="text"
+                class="form-control">
+              <div *ngIf="f.credits.touched && f.credits.invalid" class="alert alert-danger">
+                  <div *ngIf="f.credits.errors.required">*Introduce un valor para la nave.</div>
+                  <div *ngIf="f.credits.errors.pattern">*Se ha introducido un caracter prohibido.</div>
+              </div>
+            </div>
+        </div>
+
+
+    <!--                     EN ALGUN MOMENTO TENDRE QUE AFRONTAR EL PROBLEMA DE PILOTS, PERO HOY NO
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+              <label for="phone">Phone:</label>
+              <input
+                [(ngModel)]="person.phone"
+                formControlName="phone"
+                id="phone"
+                type="text"
+                class="form-control">
+              <div *ngIf="f.phone.touched && f.phone.invalid" class="alert alert-danger">
+                  <div *ngIf="f.phone.errors.required">*Phone is required.</div>
+                  <div *ngIf="f.phone.errors.pattern">*The phone must only contain numbers.</div>
+              </div>
+            </div>
+        </div>
+    -->
+
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Actualizar la nave</button>
+    </form>
+</div>
