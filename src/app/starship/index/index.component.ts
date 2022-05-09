@@ -18,7 +18,8 @@ export class IndexComponent implements OnInit {
   ngOnInit(): void {
     this.starshipService.getAll().subscribe((data: Starship[])=>{
       this.starships = data;
-      console.log(this.starships);
+      console.log(this.starships[1].credits);
+      console.log(this.starships.filter(item => item.credits));
     })
   }
 
@@ -30,3 +31,5 @@ export class IndexComponent implements OnInit {
   }
 
 }
+
+

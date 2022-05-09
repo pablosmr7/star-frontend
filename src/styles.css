@@ -1,1 +1,41 @@
 /* You can add global styles to this file, and also import other style files */
+body {  
+    background-color: #000000;
+    color: rgb(244, 244, 252);
+}
+
+.bgi {
+  border: #ff0000 1px;
+  background-image: url("/assets/img/bgi.jpg");
+  background-color: #cccccc;
+  height: 100%;
+  width: 1000px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: fixed;
+  z-index: -5;
+}
+
+
+tr:hover {background-color: rgb(49, 18, 223);}
+
+th {
+    background-color: #04AA6D;
+    color: white;
+}
+  
+td{
+    color: white;
+}
+
+  /*body.dark-theme {
+    --text-color: #eee;
+    --bkg-color: #121212;
+  }*/
+
+  img{
+    width:128px;
+    height:128px;
+    /*mix-blend-mode: multiply;*/
+  }

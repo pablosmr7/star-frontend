@@ -1,26 +1,32 @@
+<div class="bgi">
+</div>
 <section>
-
+  
     <div class="d-flex justify-content-between">
       <h4>Gran Astillero de Coruscant</h4>
       <a routerLink="/starship/create" class="btn btn-success">Añadir Nave</a>
     </div>
 
     <br>
-    
+    <!--
     <table class="table ">
       <tr>
         <th>ID</th>
         <th>Designación de la nave</th>
-        <th>Coste en Creditos</th>
-        <!--<th>????</th> AQUI DEBERÁN AÑADIRSE LOS PILOTOS DESIGNADOS-->
+        <th>Coste en Creditos</th>  -->
+
+        <!--<th>????</th> AQUI DEBERÁN AÑADIRSE LOS PILOTOS DESIGNADOS
+       
         <th width="220px">Action</th>
       </tr>
-
+      
       <tr *ngFor="let starship of starships">
         <td>{{ starship.id }}</td>
         <td>{{ starship.name }}</td>
         <td>{{ starship.credits }}</td>
+        -->
         <!--<td>{{ starship.pilots??? }}</td> Esto hay que sacarlo adelante de alguna manera-->
+        <!--
         <td>
           <a href="#" [routerLink]="['/starship/', 'edit', starship.id  ]" class="btn btn-primary">Edit</a>
           <button type="button" (click)="deleteStarship(starship.id)" class="btn btn-danger">Delete</button>
@@ -28,4 +34,26 @@
       </tr>
       
     </table>
+  -->
+
+  <mat-card class="example-card" *ngFor="let starship of starships">
+    <mat-card-title-group>
+      <mat-card-title>Shiba Inu</mat-card-title>
+      <mat-card-subtitle>Small</mat-card-subtitle>
+      <img mat-card-sm-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" >
+    </mat-card-title-group>
+    <mat-card-content>
+      {{ starship.id }}
+      {{ starship.name }}
+      {{ starship.credits }}
+    </mat-card-content>
+  </mat-card>
+
+
+
+
+
+
+
+
 </section>
