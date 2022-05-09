@@ -18,7 +18,16 @@ export class IndexComponent implements OnInit {
   ngOnInit(): void {
     this.starshipService.getAll().subscribe((data: Starship[])=>{
       this.starships = data;
-      console.log(this.starships[1].credits);
+
+      for (let i = 0; i < data.length; i++) {
+
+        if(this.starships[i].credits!=NaN){
+          console.log(this.starships[i].credits % 15);
+        }
+
+      };
+
+      //console.log(this.starships[1].credits/26);
       console.log(this.starships.filter(item => item.credits));
     })
   }
@@ -26,7 +35,7 @@ export class IndexComponent implements OnInit {
   deleteStarship(id){
     this.starshipService.delete(id).subscribe(res => {
          this.starships = this.starships.filter(item => item.id !== id);
-         console.log('La nave ha sido eliminada, almirante.');
+         alert('La nave ha sido eliminada, almirante.');
     })
   }
 
