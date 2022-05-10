@@ -1,13 +1,14 @@
 <div class="bgi">
 </div>
 
-<div class="nav-main">
+<div class="nav-main" (scroll)="onscroll()"[ngClass]="navbarfixed?'fixed':'nofixed'">
+
 	<h1 style="text-align:center;">
 		<img src="/assets/img/1.png" alt="image">
-			<a href="/starship/index" class="nav-data"> Star Wars Database </a>
+			<a href="/starship/index" class="nav-data" > Star Wars Database </a>
 		<img src="/assets/img/1.png" alt="image">
 	</h1>
-		
+
 	<div class="nav-data">	
 		<h5>
 			<a href="/starship/index" >Naves Espaciales</a> / <a href="/starship/index">Personajes</a>
