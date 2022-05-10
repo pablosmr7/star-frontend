@@ -5,6 +5,9 @@ import {  Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 import { Starship } from './starship';
+import { Pilot } from './starship';
+import { PilotShip } from './starship';
+
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +15,8 @@ import { Starship } from './starship';
 export class StarshipService {
 
   private apiURL = "http://localhost:8000/api/starship/";  //EN MI MEJOR ENTENDIMIENTO ESTO ES LA RUTA QUE CONTACTA CON LARAVEL
+  private apiURL2 = "http://localhost:8000/api/pilot/";
+  private apiURL3 = "http://localhost:8000/api/pilotShip/";
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -28,6 +33,24 @@ export class StarshipService {
       catchError(this.errorHandler)
     )
   }
+
+  getPilot(): Observable<Pilot[]> {
+    return this.httpClient.get<Pilot[]>(this.apiURL2)
+    .pipe(
+      catchError(this.errorHandler)
+    )
+  }
+
+  getPilotShip(): Observable<PilotShip[]> {
+    return this.httpClient.get<PilotShip[]>(this.apiURL3)
+    .pipe(
+      catchError(this.errorHandler)
+    )
+  }
+
+
+
+
 
   create(starship): Observable<Starship> {
     return this.httpClient.post<Starship>(this.apiURL, JSON.stringify(starship), this.httpOptions)

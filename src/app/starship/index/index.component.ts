@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { StarshipService } from '../starship.service';
 import { Starship } from '../starship';
+import { Pilot } from '../starship';
+import { PilotShip } from '../starship';
 
 
 @Component({
@@ -12,6 +14,8 @@ import { Starship } from '../starship';
 export class IndexComponent implements OnInit {
 
   starships: Starship[] = [];
+  pilotShips: PilotShip[] = [];
+  pilots: Pilot[] = [];
 
   //constructor() { }  //Original
   constructor(public starshipService: StarshipService) { }
@@ -20,24 +24,37 @@ export class IndexComponent implements OnInit {
     this.starshipService.getAll().subscribe((data: Starship[])=>{
       this.starships = data;
 
-
-
       for (let i = 0; i < data.length; i++) {
 
         if(this.starships[i].credits != null){
-
           this.starships[i].credits = this.convertBase(this.starships[i].credits,10,15);
         } else{
           this.starships[i].credits ='Clasificado';
         }
-
       };
-    
+
       //console.log(this.starships[i].credits % 15);
       //console.log(this.convertBase(this.starships[i].credits,10,15));
       //console.log(this.starships[1].credits/26);
       //console.log(this.starships.filter(item => item.credits));
     })
+
+    this.starshipService.getPilot().subscribe((data: Pilot[])=>{
+      this.pilots = data;
+    })
+
+
+
+    this.starshipService.getPilotShip().subscribe((data: PilotShip[])=>{
+      this.pilotShips = data;
+      for (let i = 0; i < this.pilotShips.length; i++) {
+        console.log(this.pilotShips[i])
+      }
+    })
+    
+
+
+
   }
 
   deleteStarship(id){

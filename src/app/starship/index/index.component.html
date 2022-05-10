@@ -7,33 +7,7 @@
     </div>
 
     <br>
-    <!--
-    <table class="table ">
-      <tr>
-        <th>ID</th>
-        <th>Designación de la nave</th>
-        <th>Coste en Creditos</th>  -->
 
-        <!--<th>????</th> AQUI DEBERÁN AÑADIRSE LOS PILOTOS DESIGNADOS
-       
-        <th width="220px">Action</th>
-      </tr>
-      
-      <tr *ngFor="let starship of starships">
-        <td>{{ starship.id }}</td>
-        <td>{{ starship.name }}</td>
-        <td>{{ starship.credits }}</td>
-        -->
-        <!--<td>{{ starship.pilots??? }}</td> Esto hay que sacarlo adelante de alguna manera-->
-        <!--
-        <td>
-          <a href="#" [routerLink]="['/starship/', 'edit', starship.id  ]" class="btn btn-primary">Edit</a>
-          <button type="button" (click)="deleteStarship(starship.id)" class="btn btn-danger">Delete</button>
-        </td>
-      </tr>
-      
-    </table>
-  -->
 
 
   <div class="data-card" *ngFor="let starship of starships">
@@ -67,3 +41,36 @@
   </div>
 
 </section>
+
+
+
+
+
+    <!--  ESTO SE VA A QUEDAR AQUI SOLO POR SI ACASO
+      
+    <table class="table ">
+      <tr>
+        <th>ID</th>
+        <th>Designación de la nave</th>
+        <th>Coste en Creditos</th>  -->
+
+        <!--<th>????</th> AQUI DEBERÁN AÑADIRSE LOS PILOTOS DESIGNADOS
+       
+        <th width="220px">Action</th>
+      </tr>
+      
+      <tr *ngFor="let starship of starships">
+        <td>{{ starship.id }}</td>
+        <td>{{ starship.name }}</td>
+        <td>{{ starship.credits }}</td>
+        -->
+        <!--<td>{{ starship.pilots??? }}</td> Esto hay que sacarlo adelante de alguna manera-->
+        <!--
+        <td>
+          <a href="#" [routerLink]="['/starship/', 'edit', starship.id  ]" class="btn btn-primary">Edit</a>
+          <button type="button" (click)="deleteStarship(starship.id)" class="btn btn-danger">Delete</button>
+        </td>
+      </tr>
+      
+    </table>
+  -->
