@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+
 import { StarshipService } from '../starship.service';
 import { Starship } from '../starship';
 import { Pilot } from '../starship';
@@ -19,6 +21,9 @@ export class IndexComponent implements OnInit {
 
   //constructor() { }  //Original
   constructor(public starshipService: StarshipService) { }
+
+  form: FormGroup;
+
 
   ngOnInit(): void {
     this.starshipService.getAll().subscribe((data: Starship[])=>{
@@ -47,13 +52,33 @@ export class IndexComponent implements OnInit {
       this.pilotShips = data;
 
     })
+
+
+
+    this.form = new FormGroup({
+      //phone: new FormControl('', [ Validators.required, Validators.pattern("^[0-9]*$") ])
+    });
     
-
-    this.pilotosDisponibles();
-
-
-
   }
+
+//////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////SUBIDA DE PILOTOSNAVES//////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
+
+
+submit(){
+  console.log(this.form.value);
+  this.starshipService.createPilotShip(this.form.value).subscribe(res => {
+       alert('Piloto Asignado');
+
+  })
+}
+
+
+//////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////BORRA NAVES y PILOTOSNAVES//////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
+
 
   deleteStarship(id){
     this.starshipService.delete(id).subscribe(res => {
@@ -73,24 +98,9 @@ export class IndexComponent implements OnInit {
 
 
 
-  pilotosDisponibles(){
-   
-  for (let i = 0; i < this.starships.length; i++) {
-    
-    for (let x= 0; x< this.pilotShips.length; x++){
-
-      if(this.starships[i].id == this.pilotShips[x].id_starship){
-
-        return 
-
-      }
-    }
-  }
-
-}
-
-
-
+/////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////FUNCION PARA CAMBIAR A MULTIPLES BASES/////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////
 
   convertBase(value, from_base, to_base) {
     var range = '0123456789\u00DF\u00DE\u00A2\u00B5\u00B6+/'.split('');

@@ -34,7 +34,7 @@
           <div *ngIf="starship.id == pilotShip.id_starship">
             <div *ngIf="pilotShip.id_pilot == pilot.id">
 
-              <td>{{ pilot.name }}</td> <td><button type="button" (click)="deletePilotship(pilotShip.id)" class="btn btn-danger" >D</button></td>
+              <td>{{ pilot.name }}</td> <td><button type="button" (click)="deletePilotship(pilotShip.id)" class="btn btn-danger btn-sm" >D</button></td>
 
             </div>
           </div>
@@ -42,12 +42,26 @@
         </div>
       </table>
 
+      <form [formGroup]="form" (ngSubmit)="submit()"> 
+
+        <select name="id_pilot" id="id_pilot">
+          <option [value]="pilot.id" *ngFor="let pilot of pilots">
+            {{ pilot.name }}
+          </option>
+        </select>
+
+        <input type="hidden" id="id_starship" name="id_starship" value="starship.id"><br>
+
+        <button class="btn btn-primary btn-sm" type="submit">Añadir Piloto</button>
+
+      </form>
+
     </div>
 
 
     <!-------------------------OPCIONES DE MANEJO DE NAVES------------------------------------------->
     <div class="data-options">
-      <a href="#" [routerLink]="['/starship/', 'edit', starship.id  ]" class="btn btn-primary">Edit</a>
+      <a href="#" [routerLink]="['/starship/', 'edit', starship.id  ]" class="btn btn-primary btn-sm">Edit</a>
       <button type="button" (click)="deleteStarship(starship.id)" class="btn btn-danger btn-sm">Delete</button>
     </div>
 
