@@ -43,15 +43,13 @@ export class IndexComponent implements OnInit {
       this.pilots = data;
     })
 
-
-
     this.starshipService.getPilotShip().subscribe((data: PilotShip[])=>{
       this.pilotShips = data;
-      for (let i = 0; i < this.pilotShips.length; i++) {
-        console.log(this.pilotShips[i])
-      }
+
     })
     
+
+    this.pilotosDisponibles();
 
 
 
@@ -61,25 +59,27 @@ export class IndexComponent implements OnInit {
     this.starshipService.delete(id).subscribe(res => {
          this.starships = this.starships.filter(item => item.id !== id);
          alert('La nave ha sido eliminada, almirante.');
+
     })
   }
 
-  /*convertToCredits(){
-      //var char: string[] = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'U+00DF', 'U+00DE', 'U+00A2', 'U+00B5', 'U+00B6'];
-      var char: string[] = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E'];
-      var decimal: number = 3600000;
-      var nFinal: string;
-      var cociente: number;
-      var resto: number;
+  pilotosDisponibles(){
+   
+  for (let i = 0; i < this.starships.length; i++) {
+    
+    for (let x= 0; x< this.pilotShips.length; x++){
 
-      while ( decimal / 15 >= 0 ) {
-        resto = decimal % 15;
-        nFinal = nFinal + char[resto];
-        decimal = decimal / 15;
+      if(this.starships[i].id == this.pilotShips[x].id_starship){
 
-        console.log(nFinal);
+        return 
+
       }
-  }*/
+    }
+  }
+
+}
+
+
 
 
   convertBase(value, from_base, to_base) {

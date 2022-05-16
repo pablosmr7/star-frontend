@@ -1,4 +1,4 @@
-
+<!-----------------------BANNER DE LA SECCIÓN---------------------------------->
 <section class="banner">
   
     <div class="">
@@ -9,9 +9,8 @@
     <br>
 
 
-
+  <!------------------------TARJETAS DE DATOS PARA NAVES----------------------->  
   <div class="data-card" *ngFor="let starship of starships">
-
 
     <div class="data-title">
       <img src="/assets/img/1.png" alt="image" class="icon">
@@ -27,12 +26,22 @@
       <b>Coste: </b>{{ starship.credits }}
     </div>
 
+    <!------------------MOVIDA DE LOS PILOTOS VA AQUI---------------------->
     <div class="data-content">
-      <b>Pilotos: </b> {{ starship.name }} <br>
+      <b>Pilotos: </b>  <br>
+
+        <div *ngFor="let pilotShip of pilotShips">
+          <div *ngIf="starship.id == pilotShip.id_starship">
+
+            {{ pilotShip.id_pilot }}
+
+          </div>
+        </div>
+
     </div>
 
 
-    <br><br>
+    <!-------------------------OPCIONES DE MANEJO DE NAVES------------------------------------------->
     <div class="data-options">
       <a href="#" [routerLink]="['/starship/', 'edit', starship.id  ]" class="btn btn-primary">Edit</a>
       <button type="button" (click)="deleteStarship(starship.id)" class="btn btn-danger">Delete</button>
@@ -47,7 +56,7 @@
 
 
     <!--  ESTO SE VA A QUEDAR AQUI SOLO POR SI ACASO
-      
+
     <table class="table ">
       <tr>
         <th>ID</th>

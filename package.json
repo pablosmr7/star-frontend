@@ -3,14 +3,15 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "set NODE_OPTIONS=--openssl-legacy-provider && ng serve ",
-    "build": "ng build",
+    "start": "react-scripts --openssl-legacy-provider start",
+    "build": "export NODE_OPTIONS=--openssl-legacy-provider; gatsby build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
+    "-": "^0.0.1",
     "@angular/animations": "~10.2.4",
     "@angular/common": "~10.2.4",
     "@angular/compiler": "~10.2.4",
@@ -23,6 +24,9 @@
     "@angular/router": "~10.2.4",
     "@ng-bootstrap/ng-bootstrap": "^8.0.4",
     "bootstrap": "^4.5.0",
+    "http": "^0.0.1-security",
+    "js": "^0.1.0",
+    "parser": "^0.1.4",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
