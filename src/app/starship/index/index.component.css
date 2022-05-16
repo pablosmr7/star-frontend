@@ -7,7 +7,7 @@
     background-image: url("/../assets/img/cardbgicut.PNG") ;
 
     width: 450px;
-    height: 250px;
+    height: 350px;
 
     background-color: grey;
     float:left;
@@ -27,8 +27,8 @@
 .data-title{
     margin-right: 10px;
     margin-left: 10px;
-    margin-top: 5px;
-    margin-bottom: 20px;
+    margin-top: 0px;
+    margin-bottom: 5px;
 
     color: yellow;
     background-color: grey;
@@ -40,12 +40,42 @@
 
 .data-content{
     margin-right: 10px;
-    margin-left: 10px;
-    margin-top: 10px;
+    margin-left: 50px;
+    margin-top: 3px;
     margin-bottom: 10px;
     /*border: 3px solid rgb(0, 77, 128);*/
     float: left;
     text-align: center;
+
+    background-color: grey;
+    border: 2px outset rgb(0, 77, 128);
+    border-radius: 25px;
+}
+
+.data-content b{
+    color:rgb(121, 181, 249);
+}
+
+.data-content-pilots{
+    margin-right: 50px;
+    margin-left: 10px;
+    margin-top: 3px;
+    margin-bottom: 0px;
+    /*border: 3px solid rgb(0, 77, 128);*/
+    float: right;
+    text-align: center;
+
+    background-color: grey;
+    border: 2px outset rgb(0, 77, 128);
+    border-radius: 25px;
+}
+
+.data-content-pilots b{
+    color:rgb(121, 181, 249);
+}
+
+.data-content-pilots .delete{
+    float:right;
 }
 
 

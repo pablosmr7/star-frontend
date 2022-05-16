@@ -16,25 +16,28 @@
       <img src="/assets/img/1.png" alt="image" class="icon">
       <b>Nombre: {{ starship.name }}</b> <br>
     </div>
-
+    <!--
     <div class="data-content">
       <b>Identificacion: </b>{{ starship.id }} <br>
-
     </div>
-
+    -->
     <div class="data-content">
       <b>Coste: </b>{{ starship.credits }}
     </div>
 
     <!------------------MOVIDA DE LOS PILOTOS VA AQUI---------------------->
-    <div class="data-content">
-      <b>Pilotos: </b>  <br>
+    <div class="data-content-pilots">
+      <b>Pilotos: </b>  
 
         <div *ngFor="let pilotShip of pilotShips">
+          <div *ngFor="let pilot of pilots">
           <div *ngIf="starship.id == pilotShip.id_starship">
+            <div *ngIf="pilotShip.id_pilot == pilot.id">
 
-            {{ pilotShip.id_pilot }}
+              {{ pilot.name }} <button type="button" (click)="deletePilotship(pilotShip.id)" class="btn btn-danger" >D</button>
 
+            </div>
+          </div>
           </div>
         </div>
 

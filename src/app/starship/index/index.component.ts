@@ -63,6 +63,16 @@ export class IndexComponent implements OnInit {
     })
   }
 
+  deletePilotship(id){
+    this.starshipService.deletePilotShip(id).subscribe(res => {
+         this.pilotShips = this.pilotShips.filter(item => item.id !== id);
+         alert('El piloto ha sido eliminado, almirante');
+
+    })
+  }
+
+
+
   pilotosDisponibles(){
    
   for (let i = 0; i < this.starships.length; i++) {

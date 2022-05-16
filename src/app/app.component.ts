@@ -6,7 +6,7 @@ import { Component, HostListener } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular';
+  title = 'SW Database';
 
   navbarfixed:boolean = false;
   @HostListener('window:scroll',['$event']) onscroll(){

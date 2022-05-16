@@ -76,6 +76,14 @@ export class StarshipService {
     )
   }
 
+  deletePilotShip(id){
+    return this.httpClient.delete<Starship>(this.apiURL + id, this.httpOptions)
+    .pipe(
+      catchError(this.errorHandler)
+    )
+  }
+
+
   errorHandler(error) {
     let errorMessage = 'De alguna manera la he amuñao';
     if(error.error instanceof ErrorEvent) {
