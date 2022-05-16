@@ -28,18 +28,19 @@
     <!------------------MOVIDA DE LOS PILOTOS VA AQUI---------------------->
     <div class="data-content-pilots">
       <b>Pilotos: </b>  
-
+      <table class="table table-sm ">
         <div *ngFor="let pilotShip of pilotShips">
-          <div *ngFor="let pilot of pilots">
+          <tr  *ngFor="let pilot of pilots">
           <div *ngIf="starship.id == pilotShip.id_starship">
             <div *ngIf="pilotShip.id_pilot == pilot.id">
 
-              {{ pilot.name }} <button type="button" (click)="deletePilotship(pilotShip.id)" class="btn btn-danger" >D</button>
+              <td>{{ pilot.name }}</td> <td><button type="button" (click)="deletePilotship(pilotShip.id)" class="btn btn-danger" >D</button></td>
 
             </div>
           </div>
-          </div>
+        </tr>
         </div>
+      </table>
 
     </div>
 
@@ -47,7 +48,7 @@
     <!-------------------------OPCIONES DE MANEJO DE NAVES------------------------------------------->
     <div class="data-options">
       <a href="#" [routerLink]="['/starship/', 'edit', starship.id  ]" class="btn btn-primary">Edit</a>
-      <button type="button" (click)="deleteStarship(starship.id)" class="btn btn-danger">Delete</button>
+      <button type="button" (click)="deleteStarship(starship.id)" class="btn btn-danger btn-sm">Delete</button>
     </div>
 
   </div>
@@ -85,4 +86,27 @@
       </tr>
       
     </table>
+  -->
+
+
+
+  <!--------------------------- EN CASO DE EMERGENCIA, ROMPER CRISTAL-------------------------
+
+  <div class="data-content-pilots">
+    <b>Pilotos: </b>  
+
+      <div *ngFor="let pilotShip of pilotShips">
+        <div *ngFor="let pilot of pilots">
+        <div *ngIf="starship.id == pilotShip.id_starship">
+          <div *ngIf="pilotShip.id_pilot == pilot.id">
+
+            {{ pilot.name }} <button type="button" (click)="deletePilotship(pilotShip.id)" class="btn btn-danger" >D</button>
+
+          </div>
+        </div>
+        </div>
+      </div>
+
+  </div>
+
   -->
