@@ -60,6 +60,7 @@ img{
 }
 
 .icon{
+  margin-top: -7px;
   width:45px;
   height:45px;
   float: right;

@@ -7,70 +7,20 @@
     </div>
 
     <br>
-
-
-  <!------------------------TARJETAS DE DATOS PARA NAVES----------------------->  
-  <div class="data-card" *ngFor="let starship of starships">
-
-    <div class="data-title">
-      <img src="/assets/img/1.png" alt="image" class="icon">
-      <b>Nombre: {{ starship.name }}</b> <br>
-    </div>
-    <!--
-    <div class="data-content">
-      <b>Identificacion: </b>{{ starship.id }} <br>
-    </div>
-    -->
-    <div class="data-content">
-      <b>Coste: </b>{{ starship.credits }}
-    </div>
-
-    <!------------------MOVIDA DE LOS PILOTOS VA AQUI---------------------->
-    <div class="data-content-pilots">
-      <b>Pilotos: </b>  
-      <table class="table table-sm ">
-        <div *ngFor="let pilotShip of pilotShips">
-          <tr  *ngFor="let pilot of pilots">
-          <div *ngIf="starship.id == pilotShip.id_starship">
-            <div *ngIf="pilotShip.id_pilot == pilot.id">
-
-              <td>{{ pilot.name }}</td> <td><button type="button" (click)="deletePilotship(pilotShip.id)" class="btn btn-danger btn-sm" >D</button></td>
-
-            </div>
-          </div>
-        </tr>
-        </div>
-      </table>
-
-      <form [formGroup]="form" (ngSubmit)="submit()"> 
-
-        <select name="id_pilot" id="id_pilot">
-          <option [value]="pilot.id" *ngFor="let pilot of pilots">
-            {{ pilot.name }}
-          </option>
-        </select>
-
-        <input type="hidden" id="id_starship" name="id_starship" value="starship.id"><br>
-
-        <button class="btn btn-primary btn-sm" type="submit">Añadir Piloto</button>
-
-      </form>
-
-    </div>
-
-
-    <!-------------------------OPCIONES DE MANEJO DE NAVES------------------------------------------->
-    <div class="data-options">
-      <a href="#" [routerLink]="['/starship/', 'edit', starship.id  ]" class="btn btn-primary btn-sm">Edit</a>
-      <button type="button" (click)="deleteStarship(starship.id)" class="btn btn-danger btn-sm">Delete</button>
-    </div>
-
-  </div>
-
 </section>
 
+  <!------------------------TARJETAS DE DATOS PARA NAVES----------------------->  
+  <app-card *ngFor="let starship of starships" 
+    [starship]="starship"
+    [pilots]="pilots"
+    (starshipDeleted)="starshipDeleted($event)"
+    >
 
+    
 
+  </app-card>
+
+  <p>oiwhqoiwhoqhwp</p>
 
 
     <!--  ESTO SE VA A QUEDAR AQUI SOLO POR SI ACASO

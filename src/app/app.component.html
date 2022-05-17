@@ -1,7 +1,7 @@
 <div class="bgi">
 </div>
-
-<div class="nav-main" (scroll)="onscroll()"[ngClass]="navbarfixed?'fixed':'nofixed'">
+<!--[ngClass]="navbarfixed?'fixed':'nofixed'"-->
+<div class="nav-main" (scroll)="onscroll()">
 
 	<h1 style="text-align:center;">
 		<img src="/assets/img/1.png" alt="image">
@@ -20,8 +20,6 @@
 
 
 <div class="container" style="padding:20px;">
-
-	<!--<hr>-->
 
   <main>
     <router-outlet></router-outlet>

@@ -10,10 +10,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { BrowserModule } from '@angular/platform-browser';
+import { CardComponent } from './card/card.component';
 
 
 @NgModule({
-  declarations: [IndexComponent, CreateComponent, EditComponent],
+  declarations: [
+    IndexComponent, 
+    CreateComponent,
+    EditComponent, 
+    CardComponent
+  ],
   imports: [
     CommonModule,
     StarshipRoutingModule,
@@ -25,5 +31,5 @@ import { BrowserModule } from '@angular/platform-browser';
 })
 
 export class StarshipModule { }
-export class AngularMaterialModule { }
+//export class AngularMaterialModule { }
  

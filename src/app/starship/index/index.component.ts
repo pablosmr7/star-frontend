@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 
 import { StarshipService } from '../starship.service';
 import { Starship } from '../starship';
@@ -16,49 +16,39 @@ import { PilotShip } from '../starship';
 export class IndexComponent implements OnInit {
 
   starships: Starship[] = [];
-  pilotShips: PilotShip[] = [];
   pilots: Pilot[] = [];
 
+
+
+
   //constructor() { }  //Original
-  constructor(public starshipService: StarshipService) { }
-
-  form: FormGroup;
-
+  constructor(public starshipService: StarshipService, public fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.starshipService.getAll().subscribe((data: Starship[])=>{
       this.starships = data;
 
       for (let i = 0; i < data.length; i++) {
-
         if(this.starships[i].credits != null){
           this.starships[i].credits = this.convertBase(this.starships[i].credits,10,15);
         } else{
           this.starships[i].credits ='Clasificado';
         }
       };
+      console.log(this.starships);
 
       //console.log(this.starships[i].credits % 15);
       //console.log(this.convertBase(this.starships[i].credits,10,15));
       //console.log(this.starships[1].credits/26);
       //console.log(this.starships.filter(item => item.credits));
-    })
+    });
 
+    
     this.starshipService.getPilot().subscribe((data: Pilot[])=>{
       this.pilots = data;
-    })
-
-    this.starshipService.getPilotShip().subscribe((data: PilotShip[])=>{
-      this.pilotShips = data;
-
-    })
-
-
-
-    this.form = new FormGroup({
-      //phone: new FormControl('', [ Validators.required, Validators.pattern("^[0-9]*$") ])
     });
-    
+
+
   }
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -66,35 +56,18 @@ export class IndexComponent implements OnInit {
 //////////////////////////////////////////////////////////////////////////////////////////
 
 
-submit(){
-  console.log(this.form.value);
-  this.starshipService.createPilotShip(this.form.value).subscribe(res => {
-       alert('Piloto Asignado');
 
-  })
-}
 
 
 //////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////BORRA NAVES y PILOTOSNAVES//////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////
+starshipDeleted(id:number){
+  this.starships = this.starships.filter(item => item.id !== id);
+  alert('La nave ha sido eliminada, almirante.');
 
+}
 
-  deleteStarship(id){
-    this.starshipService.delete(id).subscribe(res => {
-         this.starships = this.starships.filter(item => item.id !== id);
-         alert('La nave ha sido eliminada, almirante.');
-
-    })
-  }
-
-  deletePilotship(id){
-    this.starshipService.deletePilotShip(id).subscribe(res => {
-         this.pilotShips = this.pilotShips.filter(item => item.id !== id);
-         alert('El piloto ha sido eliminado, almirante');
-
-    })
-  }
 
 
 

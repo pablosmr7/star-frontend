@@ -1,0 +1,56 @@
+<div class="data-card">
+<!-- //starship -->
+  <div class="data-title">
+    <img src="/assets/img/1.png" alt="image" class="icon">
+    <b>Nombre: {{ starship.name }}</b> <br>
+  </div>
+  <!--
+  <div class="data-content">
+    <b>Identificacion: </b>{{ starship.id }} <br>
+  </div>
+  -->
+  <div class="data-content">
+    <b>Coste: </b>{{ starship.credits }}
+  </div>
+
+  <!------------------MOVIDA DE LOS PILOTOS VA AQUI---------------------->
+  <div class="data-content-pilots">
+    <b>Pilotos: </b>  
+    <table class="table table-sm ">
+
+      <tr *ngFor="let pilotShip of pilotShips">
+
+            <td style="color:whitesmoke ;">{{ pilotShip.pilot.name }}</td> 
+            <td><button type="button" (click)="deletePilotship(pilotShip.id)" class="btn btn-danger btn-sm" >D</button></td>
+
+      </tr>
+    </table>
+
+
+    <!-------------EL TEMA DE AÑADIR UN PILOTO A ESTA NAVE-------------->
+
+
+    <form [formGroup]="form" (ngSubmit)="submit()"> 
+
+      <select formControlName="id_pilot">
+        <option *ngFor="let pilot of pilots" [ngValue]="pilot.id">
+          {{ pilot.name }}
+        </option>
+      </select>
+
+      
+
+      <button type="submit" class="btn btn-primary btn-sm">Añadir Piloto</button>
+    </form>
+
+  </div>
+
+
+  <!-------------------------OPCIONES DE MANEJO DE NAVES----------------------------------->
+
+  <div class="data-options">
+    <a href="#" [routerLink]="['/starship/', 'edit', starship.id  ]" class="btn btn-primary btn-sm">Edit</a>
+    <button type="button" (click)="deleteStarship(starship.id)" class="btn btn-danger btn-sm">Delete</button>
+  </div>
+
+</div>
