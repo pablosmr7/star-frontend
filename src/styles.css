@@ -29,7 +29,6 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 
-
   margin-bottom: 10px;
 
   z-index: 3;
@@ -43,11 +42,7 @@ body {
   position:relative;
   margin-bottom:0;
 
-  /*margin-top:10px;
-  margin-bottom: 10px;*/
-
   text-align: center;
-
 }
 
 a:link, a:visited {
@@ -57,12 +52,14 @@ a:link, a:visited {
 img{
   width:100px;
   height:100px;
-  /*mix-blend-mode: multiply;*/
+  
 }
 
 .icon{
-  margin-top: -10px;
+  margin-top: -12px;
+
   width:45px;
   height:45px;
+
   float: right;
 }
