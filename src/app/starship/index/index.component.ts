@@ -7,14 +7,14 @@ import { Starship } from '../starship';
 import { Pilot } from '../starship';
 import { PilotShip } from '../starship';
 
-
+//DECLARO COMPONENTE INDICE PARA STARSHIPS, DESDE AQUI SE VE TODO
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.css']
 })
 export class IndexComponent implements OnInit {
-
+  //GENERACION DE VARIABLES PARA CAPTAR OBJETOS DE TIPO STARSHIP Y PILOT
   starships: Starship[] = [];
   pilots: Pilot[] = [];
 
@@ -24,6 +24,7 @@ export class IndexComponent implements OnInit {
   //constructor() { }  //Original
   constructor(public starshipService: StarshipService, public fb: FormBuilder) { }
 
+  //ESTE CODIGO SE REALIZA INMEDIATAMENTE NADA MAS CARGARSE EL COMPONENTE
   ngOnInit(): void {
     this.starshipService.getAll().subscribe((data: Starship[])=>{
       this.starships = data;
@@ -35,12 +36,7 @@ export class IndexComponent implements OnInit {
           this.starships[i].credits ='Clasificado';
         }
       };
-      console.log(this.starships);
-
-      //console.log(this.starships[i].credits % 15);
-      //console.log(this.convertBase(this.starships[i].credits,10,15));
-      //console.log(this.starships[1].credits/26);
-      //console.log(this.starships.filter(item => item.credits));
+      //console.log(this.starships);
     });
 
     
@@ -52,16 +48,11 @@ export class IndexComponent implements OnInit {
   }
 
 //////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////SUBIDA DE PILOTOSNAVES//////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-
-//////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////BORRA NAVES y PILOTOSNAVES//////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////
+/////////////////DEBIDO A LA CONSTRUCCION DE LA PAGINA, ESTA FUNCION ESTA/////////////////
+//DIVIDIDA AQUI Y EN (starship/card.component.ts) PARA VER COMO COMIENZA, MIRA ESE ARCHIVO
+//PRIMERO///////////////////////////////////////////////////////////////////////////////// 
+
 starshipDeleted(id:number){
   this.starships = this.starships.filter(item => item.id !== id);
   alert('La nave ha sido eliminada, almirante.');
@@ -69,11 +60,12 @@ starshipDeleted(id:number){
 }
 
 
-
-
 /////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////FUNCION PARA CAMBIAR A MULTIPLES BASES/////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////
+
+//ESTA FUNCION PERMITE CAMBIAR UN VALOR DE CUALQUIER BASE A CUALQUIER OTRA VASE SIEMPRE QUE SE ENCUENTRE
+//DENTRO DE NUESTRA var range
 
   convertBase(value, from_base, to_base) {
     var range = '0123456789\u00DF\u00DE\u00A2\u00B5\u00B6+/'.split('');

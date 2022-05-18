@@ -1,15 +1,17 @@
+//  EN ESTE ARCHIVO SE ENCUENTRAN LAS INTERFACES PARA QUE FUNCIONEN LOS COMPONENTES.
+//  CON ESTO SE PUEDE CAPTAR INFORMACIÓN DE ESTE TIPO DESDE EL BACKEND LARAVEL, Y CREAR
+//  OBJETOS DE ESTE TIPO
+
 export interface Starship {
     id: number;
     name: string;
-    credits: string; //number? string? cuidado con TS y los tipos de datos
-    //pilot: string; //cuidado aqui tambien. Hay que importar la tabla intermedia de pilotos y sus movidas
+    credits: string;
 }
 
 export interface Pilot {
     id: number;
     name: string;
-    //credits: string; //number? string? cuidado con TS y los tipos de datos
-    //pilot: string; //cuidado aqui tambien. Hay que importar la tabla intermedia de pilotos y sus movidas
+
 }
 
 export interface PilotShip {
@@ -17,6 +19,5 @@ export interface PilotShip {
     id_pilot: number;
     id_starship: number;
     pilot?: Pilot;
-    //credits: string; //number? string? cuidado con TS y los tipos de datos
-    //pilot: string; //cuidado aqui tambien. Hay que importar la tabla intermedia de pilotos y sus movidas
+
 }

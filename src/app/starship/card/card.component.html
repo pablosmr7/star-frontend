@@ -1,19 +1,21 @@
+<!-- ESTE COMPONENTE CREA LAS TARJETAS DE DATOS PARA NAVES ESPACIALES(starship)-->
+
 <div class="data-card">
-<!-- //starship -->
+  <!-- SE CREA Y APARECE EL TITULO NOMBRE DE LA NAVE -->
   <div class="data-title">
     <img src="/assets/img/1.png" alt="image" class="icon">
     <b>Nombre: {{ starship.name }}</b> <br>
   </div>
-  <!--
-  <div class="data-content">
-    <b>Identificacion: </b>{{ starship.id }} <br>
-  </div>
-  -->
+
+    <!-- SE CREA Y APARECEN LOS CREDITOS DE LA NAVE, 
+      YA CONVERTIDOS A CREDITOS DE BASE 15 -->
   <div class="data-content">
     <b>Coste: </b>{{ starship.credits }}
   </div>
 
-  <!------------------MOVIDA DE LOS PILOTOS VA AQUI---------------------->
+  <!------------------ MOVIDA DE LOS PILOTOS VA AQUI --------------------------------------->
+  <!-- ESTA PARTE MUESTRA LOS PILOTOS ASIGNADOS A ESTA STARSHIP PARTICULAR Y GENERA EL BOTON
+    PARA ELIMINAR DICHO PILOTO-->
   <div class="data-content-pilots">
     <b>Pilotos: </b>  
     <table class="table table-sm ">
@@ -21,14 +23,19 @@
       <tr *ngFor="let pilotShip of pilotShips">
 
             <td style="color:whitesmoke ;">{{ pilotShip.pilot.name }}</td> 
-            <td><button type="button" (click)="deletePilotship(pilotShip.id)" class="btn btn-danger btn-sm" >D</button></td>
+            <td><button type="button" (click)="deletePilotship(pilotShip.id)" class="btn btn-danger btn-sm" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+              <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+              <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+            </svg></button></td>
 
       </tr>
     </table>
 
 
-    <!-------------EL TEMA DE AÑADIR UN PILOTO A ESTA NAVE-------------->
-
+    <!------------- EL TEMA DE AÑADIR UN PILOTO A ESTA NAVE --------------------------------->
+    <!--GENERO UN FORMULARIO EN EL QUE SELECCIONO EL PILOTO CONCRETO QUE DESEO AÑADIR A MI
+      NAVE, SOLO MANDO EL pilot.id, YA QUE EL starship.id SE SELECCIONA AUTOMATICAMENTE EN EL
+      TYPESCRIPT-->
 
     <form [formGroup]="form" (ngSubmit)="submit()"> 
 
@@ -40,13 +47,15 @@
 
       
 
-      <button type="submit" class="btn btn-primary btn-sm">Añadir Piloto</button>
+      <button type="submit" class="btn btn-primary btn-sm">Añadir</button>
     </form>
 
   </div>
 
 
-  <!-------------------------OPCIONES DE MANEJO DE NAVES----------------------------------->
+  <!------------------------- OPCIONES DE MANEJO DE NAVES -------------------------------------->
+  <!-- EL PRIMER BOTON LLAMA AL COMPONENTE PARA EDITAR NAVES, Y EL SEGUNDO BOTON LLAMA AL METODO 
+    PARA ELIMINAR NAVES DE TYPESCRIPT-->
 
   <div class="data-options">
     <a href="#" [routerLink]="['/starship/', 'edit', starship.id  ]" class="btn btn-primary btn-sm">Edit</a>

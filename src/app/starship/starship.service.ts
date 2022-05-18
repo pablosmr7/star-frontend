@@ -8,13 +8,18 @@ import { Starship } from './starship';
 import { Pilot } from './starship';
 import { PilotShip } from './starship';
 
+//SERVICIO STARSHIP QUE LLAMA A LOS MÉTODOS DEL BACK Y CONECTA CON ELLOS PARA RECIBIR Y MANDAR DATOS
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class StarshipService {
 
-  private apiURL = "http://localhost:8000/api/starship/";  //EN MI MEJOR ENTENDIMIENTO ESTO ES LA RUTA QUE CONTACTA CON LARAVEL
+  //ESTAS RUTAS CONTACTAN CON LARAVEL Y GENERAN JSONS DE SUS RESPECTIVOS DATOS
+    //PRUEBA A METERLAS EN LA BARRA DE BUSQUEDA DEL NAVEGADOR PARA COMPROBAR QUE TODO VA OK Y VER
+    //QUE DATOS DEVUELVE CADA UNA
+  private apiURL = "http://localhost:8000/api/starship/";  
   private apiURL2 = "http://localhost:8000/api/pilot/";
   private apiURL3 = "http://localhost:8000/api/pilotShip/";
 
@@ -25,6 +30,10 @@ export class StarshipService {
  }
 
  constructor(private httpClient: HttpClient) { }
+
+/////////////////////////////////////////////IMPORTANTE/////////////////////////////////////////////////
+  // ESTOS SON LOS METODOS GET DE CADA ELEMENTO. LLAMANDO A LA RUTA DE CADA UNO, NOS PERMITE CREAR
+  // OBJETOS DE ESA CATEGORIA QUE CONTIENEN UN JSON CON TODOS SUS DATOS PASADOS
 
 
   getAll(): Observable<Starship[]> {
@@ -81,8 +90,8 @@ export class StarshipService {
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////  
+////////////////METODO PARA ENCONTRAR NAVES PARTICULARES MEDIANTE SU ID///////////////////////////
+////////////////////////////////ACTUALMENTE NO ESTA EN USO////////////////////////////////////////  
 
 
   find(id): Observable<Starship> {
@@ -91,6 +100,11 @@ export class StarshipService {
       catchError(this.errorHandler)
     )
   }
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////METODO PARA ACTUALIZACIÓN DE NAVES. RECOGE Y MANDA JSON///////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////   
 
 
   update(id, starship): Observable<Starship> {
@@ -126,7 +140,7 @@ export class StarshipService {
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////MANEJO DE ERRORES EN METODOS, SI SE ACTIVA, VA TODO MAL///////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 
 

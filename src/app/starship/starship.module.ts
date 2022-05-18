@@ -13,6 +13,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CardComponent } from './card/card.component';
 
 
+//AQUI HAY QUE DECLARAR LOS COMPONENTES CREADOS PARA QUE SE PUEDAN UTILIZAR
 @NgModule({
   declarations: [
     IndexComponent, 

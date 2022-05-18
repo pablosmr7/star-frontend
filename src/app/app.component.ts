@@ -5,6 +5,9 @@ import { Component, HostListener } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
+//  ESTE FRAGMENTO DE CÓDIGO CAMBIA LA PROPIEDAD DEL NAVBAR PRINCIPAL A FIXED.
+  //  AHORA MISMO NO ESTA EN USO
 export class AppComponent {
   title = 'SW Database';
 
@@ -16,7 +19,4 @@ export class AppComponent {
       this.navbarfixed =false;
     }
   }
-
-
-
 }

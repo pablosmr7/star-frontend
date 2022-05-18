@@ -10,20 +10,27 @@
 </section>
 
   <!------------------------TARJETAS DE DATOS PARA NAVES----------------------->  
+  <!--HE REFACTORIZADO LAS TARJETAS PARA QUE SEAN SU PROPIO COMPONENTE, 
+    Y TODAS ELLAS SON RELLENADAS CON EL FOR STARSHIPS ------------------------->
+
   <app-card *ngFor="let starship of starships" 
     [starship]="starship"
     [pilots]="pilots"
     (starshipDeleted)="starshipDeleted($event)"
     >
-
-    
-
   </app-card>
 
-  <p>oiwhqoiwhoqhwp</p>
+  
+
+
+
 
 
     <!--  ESTO SE VA A QUEDAR AQUI SOLO POR SI ACASO
+      ---LEGACY CODE DE LA PRIMERA BUILD, PARA TESTS----
+
+
+
 
     <table class="table ">
       <tr>
@@ -54,7 +61,8 @@
 
 
 
-  <!--------------------------- EN CASO DE EMERGENCIA, ROMPER CRISTAL-------------------------
+  <!----- EN CASO DE EMERGENCIA, ROMPER CRISTAL-------------------------
+    -------LEGACY CODE DE LA SEGUNDA BUILD, CUANDO INTENTO JOINEAR EN EL FRONTEND DATOS, MAL HECHO, PABLO---------
 
   <div class="data-content-pilots">
     <b>Pilotos: </b>  

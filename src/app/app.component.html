@@ -1,17 +1,21 @@
+<!--IMAGEN DE FONDO PARA LA APP, SEGURO QUE HAY UNA MANERA MEJOR DE HACER ESTO-->
 <div class="bgi">
 </div>
-<!--[ngClass]="navbarfixed?'fixed':'nofixed'"-->
-<div class="nav-main" (scroll)="onscroll()">
 
+
+<!-- ESTE ES LA NAVBAR PRINCIPAL Y SUPERIOR QUE SE MANTIENE DURANTE TODO EL PROYECTO, DE AQUI SE DEBEN
+PODER CAMBIAR TODOS LOS COMPONENTES DE DATOS EN EL FUTURO SI SE SIGUEN AÑADIENDO-->
+<div class="nav-main" (scroll)="onscroll()"><!--[ngClass]="navbarfixed?'fixed':'nofixed'"-->
+	<!--EN LA BUILD 2 ESTO ERA STICKY, PERO GENERA UN SALTO RARO Y AHORA ES FIJA, TAL VEZ VOLVAMOS A ESO-->
 	<h1 style="text-align:center;">
 		<img src="/assets/img/1.png" alt="image">
 			<a href="/starship/index" class="nav-data" > Star Wars Database </a>
 		<img src="/assets/img/1.png" alt="image">
 	</h1>
-
+	<!-- AQUI VAN LOS DATOS DE NAVEGACION DE TODO EL FRONT, SI ALGUNA VEZ HAY MAS SECCIONES SUS ENLACES IRÁN AQUI-->
 	<div class="nav-data">	
 		<h5>
-			<a href="/starship/index" >Naves Espaciales</a> / <a href="/starship/index">Personajes</a>
+			<a href="/starship/index" >Naves Espaciales</a> / <a href="/starship/index">Pilotos(TBA)</a>
 		</h5>
 	</div>
 	
@@ -19,10 +23,14 @@
 
 
 
+<!--EN ESTE CONTENEDOR SE VAN A CARGAR TODOS LOS COMPONENTES VISUALES QUE QUERAMOS MOSTRAR, COMO LAS
+	STARSHIPS/CARDS.COMPONENT-->
 <div class="container" style="padding:20px;">
 
-  <main>
-    <router-outlet></router-outlet>
-  </main>
+	<!--ESTE MAIN-OUTLET LLAMA A COMPONENTES ENLAZADOS-->
+	<main>
+		<router-outlet></router-outlet>
+	</main>
+
 </div>
 
