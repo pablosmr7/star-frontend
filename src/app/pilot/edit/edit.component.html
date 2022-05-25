@@ -1,1 +1,64 @@
-<p>edit works!</p>
+<div>
+
+    <div class="d-flex justify-content-between">
+      <h4>Editar Piloto</h4>
+      <a href="#" routerLink="/pilot/index" class="btn btn-danger btn-sm">Cancelar</a>
+    </div>
+  
+    <hr/>
+  
+      <form [formGroup]="form" (ngSubmit)="submit()">
+  
+        <div class="form-group row">
+            <div class="col-md-6 ">
+                <label for="title">Nombre de la Nave:</label>
+                <input
+                  formControlName="name"
+                  [(ngModel)]="pilot.name"
+                  id="name"
+                  type="text"
+                  class="form-control">
+                <div *ngIf="f.name.touched && f.name.invalid" class="alert alert-danger">
+                    <div *ngIf="f.name.errors.required">*No se ha introducido un nombre.</div>
+                    <div *ngIf="f.name.errors.pattern">*Se ha introducido un caracter prohibido.</div>
+                </div>
+            </div>
+        </div>
+  
+        <div class="form-group row">
+            <div class="col-md-6 ">
+                <label for="birth_year">Fecha nacimiento (xxBBY):</label>
+                <input
+                  formControlName="birth_year"
+                  [(ngModel)]="pilot.birth_year"
+                  id="birth_year"
+                  type="text"
+                  class="form-control">
+                <div *ngIf="f.birth_year.touched && f.birth_year.invalid" class="alert alert-danger">
+                    <div *ngIf="f.birth_year.errors.required">*Introduce un valor para la nave.</div>
+                    <div *ngIf="f.birth_year.errors.pattern">*Se ha introducido un caracter prohibido.</div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+                <label for="gender">Genero:</label>
+                <input
+                  formControlName="gender"
+                  [(ngModel)]="pilot.gender"
+                  id="gender"
+                  type="text"
+                  class="form-control">
+                <div *ngIf="f.gender.touched && f.gender.invalid" class="alert alert-danger">
+                    <div *ngIf="f.gender.errors.required">*Introduce un valor para la nave.</div>
+                    <div *ngIf="f.gender.errors.pattern">*Se ha introducido un caracter prohibido.</div>
+                </div>
+            </div>
+        </div>
+
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Crear Piloto</button>
+    </form>
+</div>
+  

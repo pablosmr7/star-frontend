@@ -20,9 +20,9 @@ export class CreateComponent implements OnInit {
   ngOnInit(): void {
 
     this.form = new FormGroup({
-      name:  new FormControl('', [ Validators.required, Validators.pattern('^[a-zA-ZÁáÀàÉéÈèÍíÌìÓóÒòÚúÙùÑñüÜ0-9 \-\']+') ]),
+      name:  new FormControl('', [ Validators.required ]),
       birth_year: new FormControl('', [ Validators.pattern('^[a-zA-ZÁáÀàÉéÈèÍíÌìÓóÒòÚúÙùÑñüÜ0-9 \-\']+') ]),
-      gender: new FormControl('', [ Validators.pattern('^[a-zA-Z]+') ])
+      gender: new FormControl('', [ Validators.required ])
       //phone: new FormControl('', [ Validators.required, Validators.pattern("^[0-9]*$") ])
     });
   }
