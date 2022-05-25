@@ -18,12 +18,28 @@ export class IndexComponent implements OnInit {
   ngOnInit(): void {
     this.pilotService.getAll().subscribe((data: Pilot[])=>{
       this.pilots = data;
-      console.log(this.pilots);
+
+      for (let i = 0; i < data.length; i++) {
+
+        if(this.pilots[i].birth_year == 'unknown'){
+          this.pilots[i].birth_year ='Desconocido'
+        };
+
+        if(this.pilots[i].gender == 'male'){
+          this.pilots[i].gender ='Masculino'
+        };
+
+        if(this.pilots[i].gender == 'female'){
+          this.pilots[i].gender ='Femenino'
+        };
+
+      };
+
     })
   }
 
 
-  
+
   deletePilot(id){
     this.pilotService.delete(id).subscribe(res => {
          this.pilots = this.pilots.filter(item => item.id !== id);

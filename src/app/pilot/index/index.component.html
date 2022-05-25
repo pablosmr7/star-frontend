@@ -9,10 +9,9 @@
 </section>
 
 <div class= "table-back" style="overflow-x:auto;">
-    <table class="table table-hover">
+    <table class="table table-hover table-sm">
         <thead class="thead-dark">
             <tr>
-                <th scope="col">ID</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Nacimiento</th>
                 <th scope="col">Genero</th>
@@ -23,8 +22,7 @@
         <tbody>
             <tr *ngFor="let pilot of pilots">
 
-                <td scope="row">{{ pilot.id }}</td>
-                <td>{{ pilot.name }}</td>
+                <td scope="row">{{ pilot.name }}</td>
                 <td>{{ pilot.birth_year }}</td>
                 <td>{{ pilot.gender }}</td>
                 <td colspan="2">
