@@ -1,0 +1,30 @@
+.banner{
+    width:100%;
+
+    border-radius: 1em;
+    border: 5px outset rgb(0, 111, 202);
+
+    margin-bottom: 2%;
+
+    text-align:center;
+    background-image: url("/../assets/img/person-banner.JPEG");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+
+
+
+table{
+    text-align: center;
+
+    color: aqua;
+    background: rgb(128, 128, 128, 0.8);
+}
+
+.table-hover tbody tr:hover td {
+    color: rgb(255, 232, 31);
+    background: rgb(0, 0, 0);
+}

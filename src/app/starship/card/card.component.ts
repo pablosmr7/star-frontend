@@ -31,13 +31,12 @@ export class CardComponent implements OnInit {
   ) { }
 
 
-  //AL LLAMAR AL COMPONENTE, SE INICIA ESTO AUTOMATICAMENTE
-  ///////////////////////////// ¡IMPORTANTE! ///////////////////////////////////////////////////////////
-  //AQUI VA EL CONTROL DEL FORMULARIO PARA SUBIR PILOTOS, Y ES DONDE SE ASIGNA AUTO EL this.starship.id
+  ////////////////////////AL LLAMAR AL COMPONENTE, SE INICIA ESTO AUTOMATICAMENTE////////////////////////
+  //////////////////////////////////////// ¡IMPORTANTE! /////////////////////////////////////////////////
+  //AQUI VA EL CONTROL DEL FORMULARIO PARA SUBIR PILOTOS, Y ES DONDE SE ASIGNA AUTO EL this.starship.id//
 
   ngOnInit(): void {
-    console.log("enganchao mal");
-
+    //console.log("enganchao mal");
     this.starshipService.getPilotShipbyId(this.starship.id).subscribe((data: PilotShip[])=>{
       this.pilotShips = data;
     });
@@ -64,7 +63,7 @@ export class CardComponent implements OnInit {
     alert('Piloto Asignado');
   }
 
-////////////////////////////////// ¡IMPORTANTE! //////////////////////////////////////////////////////////
+/////////////////////////////////////////// ¡IMPORTANTE! /////////////////////////////////////////////////
 ////////////////////////// METODOS DE BORRADO PARA NAVES Y PARA PILOTOS->NAVE/////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 

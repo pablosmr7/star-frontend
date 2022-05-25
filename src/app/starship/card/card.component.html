@@ -13,14 +13,16 @@
     <b>Coste: </b>{{ starship.credits }}
   </div>
 
-  <!------------------ MOVIDA DE LOS PILOTOS VA AQUI --------------------------------------->
-  <!-- ESTA PARTE MUESTRA LOS PILOTOS ASIGNADOS A ESTA STARSHIP PARTICULAR Y GENERA EL BOTON
-    PARA ELIMINAR DICHO PILOTO-->
+  
+
+  <!------------------------------ LA MOVIDA DE LOS PILOTOS VA AQUI --------------------------------------->
+    <!-- ESTA PARTE MUESTRA LOS PILOTOS ASIGNADOS A ESTA STARSHIP PARTICULAR Y GENERA EL BOTON
+      PARA ELIMINAR DICHO PILOTO-->
   <div class="data-content-pilots">
     <b>Pilotos: </b>  
-    <table class="table table-sm ">
+    <table class="table table-hover table-sm ">
 
-      <tr *ngFor="let pilotShip of pilotShips">
+      <tr scope="col" *ngFor="let pilotShip of pilotShips">
 
             <td style="color:whitesmoke ;">{{ pilotShip.pilot.name }}</td> 
             <td><button type="button" (click)="deletePilotship(pilotShip.id)" class="btn btn-danger btn-sm" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
@@ -32,10 +34,10 @@
     </table>
 
 
-    <!------------- EL TEMA DE AÑADIR UN PILOTO A ESTA NAVE --------------------------------->
-    <!--GENERO UN FORMULARIO EN EL QUE SELECCIONO EL PILOTO CONCRETO QUE DESEO AÑADIR A MI
-      NAVE, SOLO MANDO EL pilot.id, YA QUE EL starship.id SE SELECCIONA AUTOMATICAMENTE EN EL
-      TYPESCRIPT-->
+    <!------------- EL TEMA DE AÑADIR UN PILOTO A ESTA NAVE ------------->
+      <!--GENERO UN FORMULARIO EN EL QUE SELECCIONO EL PILOTO CONCRETO QUE DESEO AÑADIR A MI
+        NAVE, SOLO MANDO EL pilot.id, YA QUE EL starship.id SE SELECCIONA AUTOMATICAMENTE EN EL
+        TYPESCRIPT-->
 
     <form [formGroup]="form" (ngSubmit)="submit()"> 
 
@@ -53,9 +55,9 @@
   </div>
 
 
-  <!------------------------- OPCIONES DE MANEJO DE NAVES -------------------------------------->
-  <!-- EL PRIMER BOTON LLAMA AL COMPONENTE PARA EDITAR NAVES, Y EL SEGUNDO BOTON LLAMA AL METODO 
-    PARA ELIMINAR NAVES DE TYPESCRIPT-->
+  <!-------------------------------------- OPCIONES DE MANEJO DE NAVES -------------------------------------------------->
+    <!-- EL PRIMER BOTON LLAMA AL COMPONENTE PARA EDITAR NAVES, Y EL SEGUNDO BOTON LLAMA AL METODO 
+      PARA ELIMINAR NAVES DE TYPESCRIPT-->
 
   <div class="data-options">
     <a href="#" [routerLink]="['/starship/', 'edit', starship.id  ]" class="btn btn-primary btn-sm">Editar</a>

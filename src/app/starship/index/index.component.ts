@@ -7,6 +7,7 @@ import { Starship } from '../starship';
 import { Pilot } from '../starship';
 import { PilotShip } from '../starship';
 
+
 //DECLARO COMPONENTE INDICE PARA STARSHIPS, DESDE AQUI SE VE TODO
 @Component({
   selector: 'app-index',
@@ -19,9 +20,6 @@ export class IndexComponent implements OnInit {
   pilots: Pilot[] = [];
 
 
-
-
-  //constructor() { }  //Original
   constructor(public starshipService: StarshipService, public fb: FormBuilder) { }
 
   //ESTE CODIGO SE REALIZA INMEDIATAMENTE NADA MAS CARGARSE EL COMPONENTE
@@ -48,7 +46,7 @@ export class IndexComponent implements OnInit {
   }
 
 //////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////BORRA NAVES y PILOTOSNAVES//////////////////////////////
+///////////////////////////////BORRA NAVES y PILOTOSNAVES/////////////////////////////////
 /////////////////DEBIDO A LA CONSTRUCCION DE LA PAGINA, ESTA FUNCION ESTA/////////////////
 //DIVIDIDA AQUI Y EN (starship/card.component.ts) PARA VER COMO COMIENZA, MIRA ESE ARCHIVO
 //PRIMERO///////////////////////////////////////////////////////////////////////////////// 

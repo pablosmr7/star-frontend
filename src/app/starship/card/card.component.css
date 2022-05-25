@@ -1,5 +1,4 @@
 .data-card {
-
     background-image: url("/../assets/img/cardbgicut.PNG") ;
 
     width: 450px;
@@ -31,7 +30,7 @@
 
     background: rgba(128, 128, 128, .7);    /*  70% opaque grey */ 
     border: 5px outset rgb(0, 77, 128);
-    border-radius: 25px;
+    border-radius: 20px;
     
 }
 
@@ -47,7 +46,7 @@
 
     background: rgba(128, 128, 128, .5);
     border: 2px outset rgb(0, 77, 128);
-    border-radius: 25px;
+    border-radius: 20px;
 }
 
 .data-content b{
@@ -55,21 +54,22 @@
 }
 
 .data-content-pilots{
-    margin-right: 1%;
+    margin-right: 3%;
     margin-left: 5%;
     margin-top: 0px;
     margin-bottom: 0px;
 
-    position: relative;
+    position: absolute;
+    right: 0;
     float: right;
     text-align: center;
 
-    width: 46%;
-    height: 89%;
+    width: 44.8%;
+    height: 84.8%;
 
     background: rgba(128, 128, 128, .5);
     border: 2px outset rgb(0, 77, 128);
-    border-radius: 25px;
+    border-radius: 20px;
 
     overflow:auto;
 
@@ -100,8 +100,11 @@
     float:right;
 }
 
-td{
-    width: 100%;
+
+
+
+.data-content-pilots td{
+    width: 90%;
     text-align:center;
 }
 
