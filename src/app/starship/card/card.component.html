@@ -4,7 +4,7 @@
   <!-- SE CREA Y APARECE EL TITULO NOMBRE DE LA NAVE -->
   <div class="data-title">
     <img src="/assets/img/1.png" alt="image" class="icon">
-    <b>Nombre: {{ starship.name }}</b> <br>
+    <b> {{ starship.name }}</b> <br>
   </div>
 
     <!-- SE CREA Y APARECEN LOS CREDITOS DE LA NAVE, 
@@ -41,7 +41,7 @@
 
     <form [formGroup]="form" (ngSubmit)="submit()"> 
 
-      <select formControlName="id_pilot">
+      <select formControlName="id_pilot" class="input">
         <option *ngFor="let pilot of pilots" [ngValue]="pilot.id">
           {{ pilot.name }}
         </option>
