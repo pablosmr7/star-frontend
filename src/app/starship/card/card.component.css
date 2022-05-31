@@ -10,8 +10,8 @@
     margin:auto;
 
     margin-top: 40px;
-    margin-right:60px;
-    margin-left:40px;
+    margin-right:50px;
+    margin-left:50px;
     margin-bottom: 30px;
 
     border: 5px outset rgb(0, 77, 128);
@@ -36,14 +36,16 @@
 }
 
 .data-content{
-    margin-right: 5%;
-    margin-left: 8%;
-
-    position: inherit;
+    position: absolute;
+    left: 0;
     float: left;
     text-align: center;
 
-    width: 25%;
+    margin-left:2%;
+
+    width: 47%;
+    height: 65%;
+    
 
     background: rgba(128, 128, 128, .5);
     border: 2px outset rgb(0, 77, 128);
@@ -51,7 +53,8 @@
 }
 
 .data-content b{
-    color:rgb(121, 181, 249);
+   /* color:rgb(121, 181, 249);*/
+   color:greenyellow;
 }
 
 .data-content-pilots{
@@ -131,26 +134,31 @@
     border-radius: 25px;
 }
 
+/*****************************************************************
+************************MEDIAQUERRRRYYYYYS************************
+*****************************************************************/
 
-
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 560px) {
     .data-card{
         width: 100%;
-        height: 333px;
+        height: 375px;
 
         margin-top: 10px;
         margin-left: 0px;
         margin-right: 0px;
         margin-bottom: 15px;
+
+        padding: 3px;
     }
 
     .data-title{
         width:100%;
+        height: 19%;
 
         margin-top: 0%;
         margin-right: 0px;
         margin-left:0%;
-        margin-bottom: 5px;
+        margin-bottom: 2px;
     
         color: yellow;
     
@@ -169,7 +177,7 @@
         margin-right:0%;
     
         width: 50%;
-        height: 77%;
+        height: 78%;
     
         background: rgba(128, 128, 128, .5);
         border: 2px outset rgb(0, 77, 128);
@@ -195,7 +203,10 @@
         margin-left:2%;
     
         width: 47%;
-        height: 65%;
+        height: 68%;
+
+        overflow-x:hidden;
+        overflow-y: auto;
 
     }
 
@@ -208,10 +219,10 @@
         float:left;
         text-align: center;
 
-        margin-top: 2%;
+        margin-top: 0.5%;
         margin-right: 0px;
         margin-left:2%;
-        margin-bottom: 2%;
+        margin-bottom: 1%;
     
         width: 47%;
     
@@ -220,12 +231,18 @@
         background: rgba(128, 128, 128, .5);
         border: 2px outset rgb(0, 77, 128);
         border-radius: 20px;
+
+
     }
 
     .input{
         width:90%;
     }
     
+
+    ::-webkit-scrollbar {
+        width: 2px;
+    }
 
 
 }

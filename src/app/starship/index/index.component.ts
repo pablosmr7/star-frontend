@@ -34,7 +34,6 @@ export class IndexComponent implements OnInit {
           this.starships[i].credits ='Clasificado';
         }
       };
-      //console.log(this.starships);
     });
 
     

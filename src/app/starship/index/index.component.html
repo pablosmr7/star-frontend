@@ -9,10 +9,12 @@
     <br>
 </section>
 
+
+
   <!------------------------TARJETAS DE DATOS PARA NAVES----------------------->  
   <!--HE REFACTORIZADO LAS TARJETAS PARA QUE SEAN SU PROPIO COMPONENTE, 
-    Y TODAS ELLAS SON RELLENADAS CON EL FOR STARSHIPS ------------------------->
-
+    ------------Y TODAS ELLAS SON RELLENADAS CON EL FOR STARSHIPS ------------->
+    
   <app-card *ngFor="let starship of starships" 
     [starship]="starship"
     [pilots]="pilots"

@@ -10,7 +10,17 @@
     <!-- SE CREA Y APARECEN LOS CREDITOS DE LA NAVE, 
       YA CONVERTIDOS A CREDITOS DE BASE 15 -->
   <div class="data-content">
-    <b>Coste: </b>{{ starship.credits }}
+    <table class="table table-hover table-sm " style="color:whitesmoke">
+      <tr>
+        <td> <b>Coste: </b>{{ starship.credits }} </td>
+      </tr> 
+      <tr>
+        <td> <b>Modelo: </b>{{ starship.model }} </td>
+      </tr> 
+      <tr>
+        <td> <b>Manufactor: </b>{{ starship.manufacturer }}</td>
+      </tr>  
+    </table>
   </div>
 
   
