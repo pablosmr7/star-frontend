@@ -1,1 +1,49 @@
-<p>report works!</p>
+<section class="banner">
+  
+    <div class="">
+        <h4><a routerLink="/starship/index">Gran Astillero de Coruscant</a></h4>
+        <a routerLink="/starship/create" class="btn btn-success">Añadir Nave</a>
+        <a routerLink="/starship/report" class="btn btn-primary">Generar Informe</a>
+    </div>
+
+    <br>
+</section>
+
+
+<div class="container" >
+    <div class="row">
+      <div class="col-md-8" id="htmlData" >
+        <table class="table" >
+          <tr class="table-primary">
+            <th>Tu</th>
+            <th>PDF</th>
+            <th>Tendrá</th>
+            <th>Este</th>
+          </tr>
+          <tr>
+            <th>Aspecto</th>
+            <th>Gracias</th>
+            <th>Y pulsa</th>
+            <th>Download!</th>
+          </tr>
+          <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Coste(CI)</th>
+            <th>Modelo</th>
+          </tr>
+          <tr *ngFor="let starship of starships">
+            <th>{{starship.id}}</th>
+            <td>{{starship.name}}</td>
+            <td>{{starship.credits}}</td>
+            <td>{{starship.model}}</td>
+          </tr>
+        </table>
+      </div>
+          <div class="col-md-4 text-right">
+            <button class="btn btn-success btn-block" (click)="openPDF()">Download PDF</button>
+            <a routerLink="/starship/index" class="btn btn-danger btn-block">Volver</a>
+          </div>
+        </div>
+    </div>
+

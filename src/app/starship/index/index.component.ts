@@ -5,11 +5,6 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 import { StarshipService } from '../starship.service';
 import { Starship } from '../starship';
 import { Pilot } from '../starship';
-import { PilotShip } from '../starship';
-
-import { jsPDF } from 'jspdf';
-import html2canvas from 'html2canvas';
-
 
 //DECLARO COMPONENTE INDICE PARA STARSHIPS, DESDE AQUI SE VE TODO
 @Component({
@@ -58,25 +53,6 @@ starshipDeleted(id:number){
   alert('La nave ha sido eliminada, almirante.');
 
 }
-
-
-//////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////GENERAR PDF DE LAS NAVES///////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////
-
-public openPDF(): void {
-  let DATA: any = document.getElementById('htmlData');
-  html2canvas(DATA).then((canvas) => {
-    let fileWidth = 208;
-    let fileHeight = (canvas.height * fileWidth) / canvas.width;
-    const FILEURI = canvas.toDataURL('image/png');
-    let PDF = new jsPDF('p', 'mm', 'a4');
-    let position = 0;
-    PDF.addImage(FILEURI, 'PNG', 0, position, fileWidth, fileHeight);
-    PDF.save('angular-demo.pdf');
-  });
-}
-
 
 /////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////FUNCION PARA CAMBIAR A MULTIPLES BASES/////////////////////////////
