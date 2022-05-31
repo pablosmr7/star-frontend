@@ -1,35 +1,60 @@
 <section class="banner">
   
     <div class="">
-      <h4>Listado de Pilotos Disponibles</h4>
-      <a routerLink="/pilot/create" class="btn btn-success">Nuevo Piloto</a>
+        <h4>Listado de Pilotos Disponibles</h4>
+        <a routerLink="/pilot/create" class="btn btn-success">Nuevo Piloto</a>
+        <button class="btn btn-primary" (click)="openPDF()">Descargar PDF</button>
     </div>
 
     <br>
 </section>
 
-<div class= "table-back" style="overflow-x:auto;">
-    <table class="table table-hover table-sm">
-        <thead class="thead-dark">
-            <tr>
+<div class="container">
+    <div class= "table-back" style="overflow-x:auto;">
+        <table class="table table-hover table-sm" id="htmlData">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Nacimiento</th>
+                    <th scope="col">Genero</th>
+                    <th scope="col" colspan="2"> Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let pilot of pilots">
+                    <td scope="row">{{ pilot.name }}</td>
+                    <td>{{ pilot.birth_year }}</td>
+                    <td>{{ pilot.gender }}</td>
+                    <td colspan="2">
+                        <a href="#" [routerLink]="['/pilot/', 'edit', pilot.id  ]" class="btn btn-primary btn-sm">Editar</a>
+                        <button type="button" (click)="deletePilot(pilot.id)" class="btn btn-danger btn-sm">Eliminar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+<div class="oculto">
+    <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            <table class="table table-bordered">
+              <tr class="table-primary">
                 <th scope="col">Nombre</th>
                 <th scope="col">Nacimiento</th>
                 <th scope="col">Genero</th>
-                <th scope="col" colspan="2"> Actions</th>
-            </tr>
-        </thead>
-
-        <tbody>
-            <tr *ngFor="let pilot of pilots">
-
+              </tr>
+              <tr *ngFor="let pilot of pilots">
                 <td scope="row">{{ pilot.name }}</td>
                 <td>{{ pilot.birth_year }}</td>
                 <td>{{ pilot.gender }}</td>
-                <td colspan="2">
-                    <a href="#" [routerLink]="['/pilot/', 'edit', pilot.id  ]" class="btn btn-primary btn-sm">Editar</a>
-                    <button type="button" (click)="deletePilot(pilot.id)" class="btn btn-danger btn-sm">Eliminar</button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+              </tr>
+            </table>
+          </div>
+        </div>
+    </div>
 </div>

@@ -28,3 +28,7 @@ table{
     color: rgb(255, 232, 31);
     background: rgb(0, 0, 0);
 }
+
+.oculto{
+    display:none;
+}

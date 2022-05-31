@@ -9,6 +9,9 @@ import { EditComponent } from './edit/edit.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { jsPDF } from 'jspdf';
+import * as html2canvas from 'html2canvas';
+
 
 @NgModule({
   declarations: [
