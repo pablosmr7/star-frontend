@@ -3,7 +3,7 @@
     <div class="">
         <h4>Listado de Pilotos Disponibles</h4>
         <a routerLink="/pilot/create" class="btn btn-success">Nuevo Piloto</a>
-        <button class="btn btn-primary" (click)="openPDF()">Descargar PDF</button>
+        <a routerLink="/pilot/report" class="btn btn-primary">Generar Informe</a>
     </div>
 
     <br>
@@ -11,7 +11,7 @@
 
 <div class="container">
     <div class= "table-back" style="overflow-x:auto;">
-        <table class="table table-hover table-sm" id="htmlData">
+        <table class="table table-hover table-sm">
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">Nombre</th>
@@ -36,25 +36,3 @@
     </div>
 </div>
 
-
-
-<div class="oculto">
-    <div class="container">
-        <div class="row">
-          <div class="col-md-8">
-            <table class="table table-bordered">
-              <tr class="table-primary">
-                <th scope="col">Nombre</th>
-                <th scope="col">Nacimiento</th>
-                <th scope="col">Genero</th>
-              </tr>
-              <tr *ngFor="let pilot of pilots">
-                <td scope="row">{{ pilot.name }}</td>
-                <td>{{ pilot.birth_year }}</td>
-                <td>{{ pilot.gender }}</td>
-              </tr>
-            </table>
-          </div>
-        </div>
-    </div>
-</div>

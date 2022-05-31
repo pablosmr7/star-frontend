@@ -27,6 +27,7 @@
     "http": "^0.0.1-security",
     "js": "^0.1.0",
     "jspdf": "^2.5.1",
+    "jspdf-autotable": "^3.5.24",
     "parser": "^0.1.4",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",

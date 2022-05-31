@@ -4,6 +4,7 @@
     <div class="">
       <h4>Gran Astillero de Coruscant</h4>
       <a routerLink="/starship/create" class="btn btn-success">Añadir Nave</a>
+      <button class="btn btn-primary" (click)="openPDF()">Generar PDF</button>
     </div>
 
     <br>
@@ -14,14 +15,14 @@
   <!------------------------TARJETAS DE DATOS PARA NAVES----------------------->  
   <!--HE REFACTORIZADO LAS TARJETAS PARA QUE SEAN SU PROPIO COMPONENTE, 
     ------------Y TODAS ELLAS SON RELLENADAS CON EL FOR STARSHIPS ------------->
-    
-  <app-card *ngFor="let starship of starships" 
-    [starship]="starship"
-    [pilots]="pilots"
-    (starshipDeleted)="starshipDeleted($event)"
-    >
-  </app-card>
-
+  <div id="HtmlData">  
+    <app-card *ngFor="let starship of starships" 
+      [starship]="starship"
+      [pilots]="pilots"
+      (starshipDeleted)="starshipDeleted($event)"
+      >
+    </app-card>
+</div>
   
 
 

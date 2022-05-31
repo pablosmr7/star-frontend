@@ -11,13 +11,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { jsPDF } from 'jspdf';
 import * as html2canvas from 'html2canvas';
+import { ReportComponent } from './report/report.component';
 
 
 @NgModule({
   declarations: [
     IndexComponent,
     CreateComponent,
-    EditComponent
+    EditComponent,
+    ReportComponent
   ],
   imports: [
     CommonModule,

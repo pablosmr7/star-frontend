@@ -7,6 +7,9 @@ import { Starship } from '../starship';
 import { Pilot } from '../starship';
 import { PilotShip } from '../starship';
 
+import { jsPDF } from 'jspdf';
+import html2canvas from 'html2canvas';
+
 
 //DECLARO COMPONENTE INDICE PARA STARSHIPS, DESDE AQUI SE VE TODO
 @Component({
@@ -57,6 +60,24 @@ starshipDeleted(id:number){
 }
 
 
+//////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////GENERAR PDF DE LAS NAVES///////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
+
+public openPDF(): void {
+  let DATA: any = document.getElementById('htmlData');
+  html2canvas(DATA).then((canvas) => {
+    let fileWidth = 208;
+    let fileHeight = (canvas.height * fileWidth) / canvas.width;
+    const FILEURI = canvas.toDataURL('image/png');
+    let PDF = new jsPDF('p', 'mm', 'a4');
+    let position = 0;
+    PDF.addImage(FILEURI, 'PNG', 0, position, fileWidth, fileHeight);
+    PDF.save('angular-demo.pdf');
+  });
+}
+
+
 /////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////FUNCION PARA CAMBIAR A MULTIPLES BASES/////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -69,8 +90,6 @@ starshipDeleted(id:number){
     var from_range = range.slice(0, from_base);
     var to_range = range.slice(0, to_base);
 
-
-    
     var dec_value = value.split('').reverse().reduce(function (carry, digit, index) {
       if (from_range.indexOf(digit) === -1) throw new Error('Invalid digit `'+digit+'` for base '+from_base+'.');
       return carry += from_range.indexOf(digit) * (Math.pow(from_base, index));

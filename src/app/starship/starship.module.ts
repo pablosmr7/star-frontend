@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { CardComponent } from './card/card.component';
+import { ReportComponent } from './report/report.component';
 
 
 //AQUI HAY QUE DECLARAR LOS COMPONENTES CREADOS PARA QUE SE PUEDAN UTILIZAR
@@ -19,7 +20,7 @@ import { CardComponent } from './card/card.component';
     IndexComponent, 
     CreateComponent,
     EditComponent, 
-    CardComponent
+    CardComponent, ReportComponent
   ],
   imports: [
     CommonModule,

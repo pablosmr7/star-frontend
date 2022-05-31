@@ -1,0 +1,48 @@
+<section class="banner">
+  
+    <div class="">
+        <h4><a routerLink="/pilot/index">Listado de Pilotos Disponibles</a></h4>
+        <a routerLink="/pilot/create" class="btn btn-success">Nuevo Piloto</a>
+        <a routerLink="/pilot/report" class="btn btn-primary">Generar Informe</a>
+    </div>
+
+    <br>
+</section>
+<br><br>
+
+<div class="container" >
+    <div class="row">
+      <div class="col-md-8" id="htmlData" >
+        <table class="table table-bordered" >
+          <tr class="table-primary">
+            <th>Tu</th>
+            <th>PDF</th>
+            <th>Tendrá</th>
+            <th>Este</th>
+          </tr>
+          <tr class="">
+            <th>Aspecto</th>
+            <th>Gracias</th>
+            <th>Y pulsa</th>
+            <th>Download!</th>
+          </tr>
+          <tr class="">
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Nacimiento</th>
+            <th>Genero</th>
+          </tr>
+          <tr *ngFor="let pilot of pilots">
+            <th>{{pilot.id}}</th>
+            <td>{{pilot.name}}</td>
+            <td>{{pilot.birth_year}}</td>
+            <td>{{pilot.gender}}</td>
+          </tr>
+        </table>
+      </div>
+          <div class="col-md-4 text-right">
+            <button class="btn btn-success btn-block" (click)="openPDF()">Download PDF</button>
+          </div>
+        </div>
+    </div>
+
