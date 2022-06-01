@@ -24,23 +24,18 @@ export class IndexComponent implements OnInit {
   ngOnInit(): void {
     this.starshipService.getAll().subscribe((data: Starship[])=>{
       this.starships = data;
-
-      for (let i = 0; i < data.length; i++) {
-        if(this.starships[i].credits != null){
-          this.starships[i].credits = this.convertBase(this.starships[i].credits,10,15);
-        } else{
-          this.starships[i].credits ='Clasificado';
-        }
-      };
     });
 
+    this.refineCredits(48);
     
     this.starshipService.getPilot().subscribe((data: Pilot[])=>{
       this.pilots = data;
     });
 
-
   }
+
+
+
 
 //////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////BORRA NAVES y PILOTOSNAVES/////////////////////////////////
@@ -51,12 +46,43 @@ export class IndexComponent implements OnInit {
 starshipDeleted(id:number){
   this.starships = this.starships.filter(item => item.id !== id);
   alert('La nave ha sido eliminada, almirante.');
-
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////FUNCION PARA CAMBIAR A MULTIPLES BASES/////////////////////////////
+//////////////////////FUNCIONES PARA CAMBIAR A MULTIPLES BASES///////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////
+
+refineCredits(id){
+  this.starshipService.getAll().subscribe((data: Starship[])=>{
+    this.starships = data;
+
+    for (let i = 0; i < data.length; i++) {
+      if(this.starships[i].credits != null){
+        this.starships[i].credits = this.convertBase(this.starships[i].credits,10,15);
+      } else{
+        this.starships[i].credits ='Clasificado';
+      }
+    };
+  });
+  this.starships = this.starships.filter(item => item.id != id);
+}
+
+refineEuros(id){
+  this.starshipService.getAll().subscribe((data: Starship[])=>{
+    this.starships = data;
+
+    for (let i = 0; i < data.length; i++) {
+      if(this.starships[i].credits != null){
+        this.starships[i].credits = this.starships[i].credits;
+      } else{
+        this.starships[i].credits ='Clasificado';
+      }
+    };
+  });
+  this.starships = this.starships.filter(item => item.id != id);
+}
+
+
 
 //ESTA FUNCION PERMITE CAMBIAR UN VALOR DE CUALQUIER BASE A CUALQUIER OTRA VASE SIEMPRE QUE SE ENCUENTRE
 //DENTRO DE NUESTRA var range

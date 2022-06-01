@@ -93,14 +93,6 @@ export class CardComponent implements OnInit {
 ////////////////////////// CAMBIO DE BASE DINAMICO ///////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  changeBase(){
-
-    
-
-
-
-  };
-
   convertBase(value, from_base, to_base) {
     var range = '0123456789\u00DF\u00DE\u00A2\u00B5\u00B6+/'.split('');
     var from_range = range.slice(0, from_base);

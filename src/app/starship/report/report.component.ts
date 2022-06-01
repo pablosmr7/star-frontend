@@ -23,13 +23,7 @@ export class ReportComponent implements OnInit {
     this.starshipService.getAll().subscribe((data: Starship[])=>{
       this.starships = data;
 
-      for (let i = 0; i < data.length; i++) {
-        if(this.starships[i].credits != null){
-          this.starships[i].credits = this.convertBase(this.starships[i].credits,10,15);
-        } else{
-          this.starships[i].credits ='Clasificado';
-        }
-      };
+      this.refineCredits(0);
     });
 
     this.starshipService.getPilot().subscribe((data: Pilot[])=>{
@@ -37,7 +31,7 @@ export class ReportComponent implements OnInit {
     });
   }
 
-  
+  //IMPRIMIR PDF
 
   public openPDF(): void {
     let DATA: any = document.getElementById('htmlData');
@@ -48,23 +42,55 @@ export class ReportComponent implements OnInit {
       var imgHeight = canvas.height * imgWidth / canvas.width-10;
       var heightLeft = imgHeight;
       var doc = new jsPDF('p', 'mm');
-      var position = 5; // give some top padding to first page
+      var position = 3; // give some top padding to first page
       
       doc.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
       heightLeft -= pageHeight;
       
       while (heightLeft >= -1) {
-        position = heightLeft+10 - imgHeight; // top padding for other pages
+        position = heightLeft - imgHeight; // top padding for other pages
         doc.addPage();
         doc.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
         heightLeft -= pageHeight;
       }
-      doc.save( 'Informe Pilotos.pdf');
+      doc.save( 'Informe Naves.pdf');
     });
 
   }
 
+// LAS COSAS DEL DINERO
 
+
+
+refineCredits(id){
+  this.starshipService.getAll().subscribe((data: Starship[])=>{
+    this.starships = data;
+
+    for (let i = 0; i < data.length; i++) {
+      if(this.starships[i].credits != null){
+        this.starships[i].credits = this.convertBase(this.starships[i].credits,10,15);
+      } else{
+        this.starships[i].credits ='Clasificado';
+      }
+    };
+  });
+  this.starships = this.starships.filter(item => item.id != id);
+}
+
+refineEuros(id){
+  this.starshipService.getAll().subscribe((data: Starship[])=>{
+    this.starships = data;
+
+    for (let i = 0; i < data.length; i++) {
+      if(this.starships[i].credits != null){
+        this.starships[i].credits = this.starships[i].credits;
+      } else{
+        this.starships[i].credits ='Clasificado';
+      }
+    };
+  });
+  this.starships = this.starships.filter(item => item.id != id);
+}
   
   convertBase(value, from_base, to_base) {
     var range = '0123456789\u00DF\u00DE\u00A2\u00B5\u00B6+/'.split('');

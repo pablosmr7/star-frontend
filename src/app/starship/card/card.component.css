@@ -41,9 +41,10 @@
     float: left;
     text-align: center;
 
-    margin-left:2%;
+    margin-left:1%;
+    margin-right:1%;
 
-    width: 47%;
+    width: 50%;
     height: 65%;
     
 
@@ -58,7 +59,7 @@
 }
 
 .data-content-pilots{
-    margin-right: 3%;
+    margin-right: 1.5%;
     margin-left: 5%;
     margin-top: 0px;
     margin-bottom: 0px;
@@ -68,7 +69,7 @@
     float: right;
     text-align: center;
 
-    width: 44.8%;
+    width: 46%;
     height: 84.8%;
 
     background: rgba(128, 128, 128, .5);
@@ -116,22 +117,24 @@
 .data-options{
     /*border: 3px solid rgb(0, 77, 128);*/
 
-    margin-right: 10px;
-    margin-left: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-right: 1%;
+    margin-left:  1%;
+    margin-top:  1%;
+    margin-bottom:  1%;
 
     position: absolute;
-    float: right;
-    bottom: 0;
+    left: 0;
+    bottom:0;
+    float: left;
+    text-align: center;
 
-    width: 30%;
+    width: 50%;
 
     text-align: center;
 
     background: rgba(128, 128, 128, .5);
-    border: 5px outset rgb(0, 77, 128);
-    border-radius: 25px;
+    border: 2px outset rgb(0, 77, 128);
+    border-radius: 15px;
 }
 
 /*****************************************************************
@@ -200,9 +203,9 @@
         float: left;
         text-align: center;
 
-        margin-left:2%;
+        margin-left:1%;
     
-        width: 47%;
+        width: 48%;
         height: 68%;
 
         overflow-x:hidden;
@@ -221,10 +224,10 @@
 
         margin-top: 0.5%;
         margin-right: 0px;
-        margin-left:2%;
+        margin-left:1%;
         margin-bottom: 1%;
     
-        width: 47%;
+        width: 48%;
     
         text-align: center;
     

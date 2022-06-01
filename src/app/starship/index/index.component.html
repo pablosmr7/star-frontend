@@ -5,7 +5,15 @@
       <h4><a routerLink="/starship/index">Gran Astillero de Coruscant</a></h4>
       <a routerLink="/starship/create" class="btn btn-success">Añadir Nave</a>
       <a routerLink="/starship/report" class="btn btn-primary">Generar Informe</a>
+
     </div>
+
+    <div class="money">
+      <button type="button" (click)="refineEuros(0)"> €. </button>
+      <button type="button" (click)="refineCredits(0)">Cr.</button>
+    </div>
+
+
 
     <br>
 </section>
