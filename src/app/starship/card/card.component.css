@@ -137,6 +137,11 @@
     border-radius: 15px;
 }
 
+.data-option button{
+    margin-left:2%;
+    margin-right:2%;
+}
+
 /*****************************************************************
 ************************MEDIAQUERRRRYYYYYS************************
 *****************************************************************/
@@ -234,8 +239,11 @@
         background: rgba(128, 128, 128, .5);
         border: 2px outset rgb(0, 77, 128);
         border-radius: 20px;
+    }
 
-
+    .data-option button{
+        margin-left:2%;
+        margin-right:2%;
     }
 
     .input{

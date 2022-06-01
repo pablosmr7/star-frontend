@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'starship/index', component: IndexComponent },
   { path: 'starship/create', component: CreateComponent },
   { path: 'starship/edit/:id_pilot', component: EditComponent },
-  { path: 'starship/report', component: ReportComponent },
+  { path: 'starship/report', component: ReportComponent }
 ];
 
 @NgModule({
