@@ -9,9 +9,14 @@ import { StarshipModule } from './starship/starship.module';
 import { PilotModule } from './pilot/pilot.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+import { SecureComponent } from './secure/secure.component';
+
+import { PublicModule } from './public/public.module';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SecureComponent
   ],
   imports: [
     BrowserModule,
@@ -19,6 +24,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     StarshipModule,
     PilotModule,
     HttpClientModule,
+    PublicModule,
     NgbModule
   ],
   providers: [],

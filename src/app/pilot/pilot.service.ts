@@ -15,7 +15,7 @@ import { Pilot } from './pilot';
 
 export class PilotService {
 
-  private apiURL = "http://localhost:8000/api/pilot/";
+  private apiURL = "http://localhost:8000/pilot/";
 
   httpOptions = {
     headers: new HttpHeaders({

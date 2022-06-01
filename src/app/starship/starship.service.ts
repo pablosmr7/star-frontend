@@ -19,9 +19,9 @@ export class StarshipService {
   //ESTAS RUTAS CONTACTAN CON LARAVEL Y GENERAN JSONS DE SUS RESPECTIVOS DATOS
     //PRUEBA A METERLAS EN LA BARRA DE BUSQUEDA DEL NAVEGADOR PARA COMPROBAR QUE TODO VA OK Y VER
     //QUE DATOS DEVUELVE CADA UNA
-  private apiURL = "http://localhost:8000/api/starship/";  
-  private apiURL2 = "http://localhost:8000/api/pilot/";
-  private apiURL3 = "http://localhost:8000/api/pilotShip/";
+  private apiURL = "http://localhost:8000/starship/";  
+  private apiURL2 = "http://localhost:8000/pilot/";
+  private apiURL3 = "http://localhost:8000/pilotShip/";
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -58,7 +58,7 @@ export class StarshipService {
   }
 
   getPilotShipbyId(id_starship:number): Observable<PilotShip[]> {
-    const url=`http://localhost:8000/api/starship/${id_starship}/pilots`;
+    const url=`http://localhost:8000/starship/${id_starship}/pilots`;
     return this.httpClient.get<PilotShip[]>(url)
     .pipe(
       catchError(this.errorHandler)
