@@ -1,6 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { LocalStorageService } from 'ngx-localstorage';
+import { AuthService } from './auth.service';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +14,12 @@ export class LoginComponent implements OnInit {
 
   form:FormGroup;
 
-  constructor(private fb: FormBuilder, private http: HttpClient) { }
+  constructor(
+    private fb: FormBuilder, 
+    private authService:AuthService,
+    private router:Router,
+    private storage:LocalStorageService
+    ) { }
 
   ngOnInit(): void {
     this.form =this.fb.group({
@@ -21,24 +29,17 @@ export class LoginComponent implements OnInit {
   }
 
   submit(){
-    const formData =this.form.getRawValue();
+    const formData =this.form.value;
 
-    const data={
-      username: formData.email,
-      password: formData.password,
-      grant_type: 'password',
-      client_id: 2,
-      client_secret: '0xXaxzx0c74BfOKKlocPLorPtW8zS1CneiJewQ5v',
-      scope:'*'
 
-    }
 
-    this.http.post('http://localhost:8000/oauth/token', data).subscribe(
+    this.authService.login(formData).subscribe(
       result=>{
-        console.log('success');
-        console.log(result);
+        this.storage.set('token',result.token);
+        this.router.navigateByUrl('starship/index');
       },
       error=>{
+        alert("esto esta mal");
         console.log('error');
         console.log(error);
       }

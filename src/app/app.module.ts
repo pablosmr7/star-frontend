@@ -9,14 +9,14 @@ import { StarshipModule } from './starship/starship.module';
 import { PilotModule } from './pilot/pilot.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { SecureComponent } from './secure/secure.component';
+
 
 import { PublicModule } from './public/public.module';
+import { NgxLocalStorageModule } from 'ngx-localstorage';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SecureComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +25,8 @@ import { PublicModule } from './public/public.module';
     PilotModule,
     HttpClientModule,
     PublicModule,
-    NgbModule
+    NgbModule,
+    NgxLocalStorageModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

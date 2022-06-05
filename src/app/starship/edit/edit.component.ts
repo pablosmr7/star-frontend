@@ -31,7 +31,9 @@ export class EditComponent implements OnInit {
 
     this.form = new FormGroup({
       name:  new FormControl('', [ Validators.required, Validators.pattern('^[a-zA-ZÁáÀàÉéÈèÍíÌìÓóÒòÚúÙùÑñüÜ0-9 \-\']+') ]),
-      credits: new FormControl('', [ Validators.pattern("^[0-9]*$") ])
+      credits: new FormControl('', [ Validators.pattern("^[0-9]*$") ]),
+      model: new FormControl('', [ Validators.required ]),
+      manufacturer: new FormControl('', [ Validators.required ])
       //phone: new FormControl('', [ Validators.required, Validators.pattern("^[0-9]*$") ])
     });
 

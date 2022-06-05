@@ -42,6 +42,41 @@
             </div>
         </div>
 
+              
+        <div class="form-group row">
+          <div class="col-md-6 ">
+            <label for="model">Modelo</label>
+            <input
+              formControlName="model"
+              [(ngModel)]="starship.model"
+              id="model"
+              type="text"
+              class="form-control">
+            <div *ngIf="f.model.touched && f.model.invalid" class="alert alert-danger">
+                <div *ngIf="f.model.errors.required">*Introduce un valor para la nave.</div>
+                <div *ngIf="f.model.errors.pattern">*Se ha introducido un caracter prohibido.</div>
+            </div>
+          </div>
+      </div>
+
+        <div class="form-group row">
+          <div class="col-md-6 ">
+            <label for="manufacturer">Manufactor</label>
+            <input
+              formControlName="manufacturer"
+              [(ngModel)]="starship.manufacturer"
+              id="manufacturer"
+              type="text"
+              class="form-control">
+            <div *ngIf="f.manufacturer.touched && f.manufacturer.invalid" class="alert alert-danger">
+                <div *ngIf="f.manufacturer.errors.required">*Introduce un valor para la nave.</div>
+                <div *ngIf="f.manufacturer.errors.pattern">*Se ha introducido un caracter prohibido.</div>
+            </div>
+          </div>
+      </div>
+
+
+
 
     <!--                     EN ALGUN MOMENTO TENDRE QUE AFRONTAR EL PROBLEMA DE PILOTS, PERO HOY NO
 

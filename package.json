@@ -28,6 +28,7 @@
     "js": "^0.1.0",
     "jspdf": "^2.5.1",
     "jspdf-autotable": "^3.5.24",
+    "ngx-localstorage": "^3.4.0",
     "parser": "^0.1.4",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
