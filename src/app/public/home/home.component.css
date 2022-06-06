@@ -1,3 +1,20 @@
-h1, p{
-    color:black;
+.jumbotron{
+    background-color: black;
+}
+
+h1{
+    text-align: center;
+    color:aquamarine;
+}
+
+
+
+ul, p{
+    color:aquamarine;
+}
+
+.log-button{
+    margin-top: 3%;
+    margin-left: 45%;
+    margin-right: 50%;
 }
